@@ -1,32 +1,54 @@
 {
-  "name": "adonis-api-app",
-  "version": "4.1.0",
-  "adonis-version": "4.1.0",
-  "description": "Adonisjs boilerplate for API server with pre-configured JWT",
-  "main": "index.js",
+  "name": "trocacasaapi",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
-    "start": "node server.js",
-    "test": "node ace test"
+    "dev": "nodemon ./src/server.js",
+    "pretest": "NODE_ENV=test sequelize db:migrate",
+    "test": "NODE_ENV=test jest --forceExit",
+    "posttest": "NODE_ENV=test sequelize db:migrate:undo:all"
   },
-  "keywords": [
-    "adonisjs",
-    "adonis-app"
-  ],
-  "author": "",
-  "license": "UNLICENSED",
-  "private": true,
+  "devDependencies": {
+    "@sucrase/jest-plugin": "latest",
+    "@types/jest": "latest",
+    "eslint": "latest",
+    "eslint-config-airbnb-base": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-import-helpers": "latest",
+    "eslint-plugin-prettier": "latest",
+    "factory-girl": "latest",
+    "faker": "latest",
+    "jest": "latest",
+    "nodemon": "latest",
+    "prettier": "latest",
+    "sucrase": "latest",
+    "sequelize-cli": "latest",
+    "sqlite3": "latest",
+    "supertest": "latest"
+  },
   "dependencies": {
-    "@adonisjs/ace": "^5.0.8",
-    "@adonisjs/auth": "^3.0.7",
-    "@adonisjs/bodyparser": "^2.0.5",
-    "@adonisjs/cors": "^1.0.7",
-    "@adonisjs/fold": "^4.0.9",
-    "@adonisjs/framework": "^5.0.9",
-    "@adonisjs/ignitor": "^2.0.8",
-    "@adonisjs/lucid": "^6.1.3"
-  },
-  "devDependencies": {},
-  "autoload": {
-    "App": "./app"
+    "@sentry/node": "latest",
+    "axios": "latest",
+    "bcryptjs": "latest",
+    "cors": "latest",
+    "date-fns": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "express-async-errors": "latest",
+    "express-brute": "latest",
+    "express-brute-redis": "latest",
+    "express-handlebars": "latest",
+    "express-rate-limit": "latest",
+    "helmet": "latest",
+    "ioredis": "latest",
+    "jsonwebtoken": "latest",
+    "pg": "latest",
+    "pg-hstore": "latest",
+    "rate-limit-redis": "latest",
+    "redis": "latest",
+    "sequelize": "latest",
+    "youch": "latest",
+    "yup": "latest"
   }
 }
