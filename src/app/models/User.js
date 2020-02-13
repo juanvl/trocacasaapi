@@ -7,6 +7,8 @@ class User extends Model {
       {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
+        phone_number: Sequelize.STRING,
+        avatar_image: Sequelize.STRING,
         password: Sequelize.VIRTUAL,
         password_hash: Sequelize.STRING,
       },
@@ -23,7 +25,7 @@ class User extends Model {
   }
 
   static associate(models) {
-    // this.hasMany(models.Teste);
+    this.hasMany(models.Property);
   }
 
   checkPassword(password) {

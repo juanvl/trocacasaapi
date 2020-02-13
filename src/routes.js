@@ -4,6 +4,7 @@ import BruteRedis from 'express-brute-redis';
 
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
+// import PropertyController from './app/controllers/PropertyController';
 import authMiddleware from './app/middlewares/auth';
 
 import * as UserValidator from './app/validators/UserValidator';
@@ -19,6 +20,7 @@ const bruteStore = new BruteRedis({
 const bruteForce = new Brute(bruteStore);
 
 routes.post('/users', UserValidator.store, UserController.store);
+
 routes.post(
   '/sessions',
   bruteForce.prevent,
@@ -26,8 +28,15 @@ routes.post(
   SessionController.store
 );
 
+// routes.get('/properties', PropertyController.index)
+// routes.get('/properties/:id', PropertyController.detail)
+
 routes.use(authMiddleware);
 
 routes.put('/users', UserValidator.update, UserController.update);
+
+// routes.post('/properties', PropertyController.store)
+// routes.put('/properties/:id', PropertyController.update)
+// routes.delete('/properties/:id', PropertyController.destroy)
 
 export default routes;
