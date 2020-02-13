@@ -1,8 +1,8 @@
 import request from 'supertest';
 
 import app from '../../src/app';
-import truncate from '../util/truncate';
 import factory from '../factories';
+import truncate from '../util/truncate';
 
 describe('Session', () => {
   beforeAll(async () => {

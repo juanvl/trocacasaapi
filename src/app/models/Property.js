@@ -11,7 +11,7 @@ export default class Property extends Model {
         for_rent: Sequelize.BOOLEAN,
         for_exchange: Sequelize.BOOLEAN,
         sale_price: Sequelize.NUMERIC,
-        rent_price: Sequelize.NUMERIC
+        rent_price: Sequelize.NUMERIC,
       },
       { sequelize }
     );
@@ -22,5 +22,4 @@ export default class Property extends Model {
   static associate(models) {
     this.belongsTo(models.User, { foreignKey: 'user_id' });
   }
-
 }

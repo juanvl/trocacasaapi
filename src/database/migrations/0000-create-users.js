@@ -19,10 +19,11 @@ module.exports = {
       phone_number: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
       avatar_image: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       password_hash: {
         type: Sequelize.STRING,

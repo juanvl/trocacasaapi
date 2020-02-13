@@ -1,10 +1,10 @@
-import Sequelize, {Model} from 'sequelize'
+import Sequelize, { Model } from 'sequelize';
 
 export default class PropertyImages extends Model {
   static init(sequelize) {
     super.init(
       {
-        url: Sequelize.STRING
+        url: Sequelize.STRING,
       },
       { sequelize }
     );

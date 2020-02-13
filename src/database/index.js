@@ -1,9 +1,9 @@
 import Sequelize from 'sequelize';
-import dbConfig from '../config/database';
 
-import User from '../app/models/User';
 import Property from '../app/models/Property';
 import PropertyImages from '../app/models/PropertyImages';
+import User from '../app/models/User';
+import dbConfig from '../config/database';
 
 const models = [User, Property, PropertyImages];
 

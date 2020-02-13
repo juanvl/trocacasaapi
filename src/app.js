@@ -1,15 +1,14 @@
 import './bootstrap';
 
-import express from 'express';
-import path from 'path';
-import cors from 'cors';
-import helmet from 'helmet';
-import redis from 'redis';
-import RateLimit from 'express-rate-limit';
-import RateLimitRedis from 'rate-limit-redis';
-
-import Youch from 'youch';
 import * as Sentry from '@sentry/node';
+import cors from 'cors';
+import express from 'express';
+import RateLimit from 'express-rate-limit';
+import helmet from 'helmet';
+import path from 'path';
+import RateLimitRedis from 'rate-limit-redis';
+import redis from 'redis';
+import Youch from 'youch';
 import 'express-async-errors';
 
 import './database';
@@ -30,9 +29,11 @@ class App {
   middlewares() {
     this.server.use(Sentry.Handlers.requestHandler());
     this.server.use(helmet());
-    this.server.use(cors({
-      origin: process.env.FRONT_URL
-    }));
+    this.server.use(
+      cors({
+        origin: process.env.FRONT_URL,
+      })
+    );
     this.server.use(express.json());
     this.server.use(express.urlencoded({ extended: false }));
 
@@ -55,7 +56,6 @@ class App {
         })
       );
     }
-
   }
 
   routes() {
@@ -71,7 +71,7 @@ class App {
         return res.status(500).json(errors);
       }
 
-      //Abstrair tratamento de erros
+      // Abstrair tratamento de erros
 
       return res.status(500).json({ error: 'Internal server error' });
     });

@@ -2,13 +2,12 @@ import { Router } from 'express';
 import Brute from 'express-brute';
 import BruteRedis from 'express-brute-redis';
 
-import UserController from './app/controllers/UserController';
+import PropertyController from './app/controllers/PropertyController';
 import SessionController from './app/controllers/SessionController';
-// import PropertyController from './app/controllers/PropertyController';
+import UserController from './app/controllers/UserController';
 import authMiddleware from './app/middlewares/auth';
-
-import * as UserValidator from './app/validators/UserValidator';
 import * as SessionValidator from './app/validators/SessionValidator';
+import * as UserValidator from './app/validators/UserValidator';
 
 const routes = new Router();
 
@@ -28,15 +27,15 @@ routes.post(
   SessionController.store
 );
 
-// routes.get('/properties', PropertyController.index)
-// routes.get('/properties/:id', PropertyController.detail)
+routes.get('/properties', PropertyController.index);
+routes.get('/properties/:id', PropertyController.detail);
 
 routes.use(authMiddleware);
 
 routes.put('/users', UserValidator.update, UserController.update);
 
-// routes.post('/properties', PropertyController.store)
-// routes.put('/properties/:id', PropertyController.update)
-// routes.delete('/properties/:id', PropertyController.destroy)
+routes.post('/properties', PropertyController.store);
+routes.put('/properties/:id', PropertyController.update);
+routes.delete('/properties/:id', PropertyController.destroy);
 
 export default routes;
