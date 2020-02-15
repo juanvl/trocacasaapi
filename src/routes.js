@@ -34,8 +34,8 @@ routes.use(authMiddleware);
 
 routes.put('/users', UserValidator.update, UserController.update);
 
-routes.post('/properties', PropertyController.store);
-routes.put('/properties/:id', PropertyController.update);
-routes.delete('/properties/:id', PropertyController.destroy);
+// routes.post('/properties', PropertyController.store);
+// routes.put('/properties/:id', PropertyController.update);
+// routes.delete('/properties/:id', PropertyController.destroy);
 
 export default routes;

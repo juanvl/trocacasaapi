@@ -7,19 +7,13 @@ class PropertyController {
     return res.json(properties);
   }
 
-  async detail(req, res) {}
+  async detail(req, res) {
+    const property_id = req.params.id
 
-  async store(req, res) {
-    const user_id = req.userId
+    const property = await Property.findOne({where: { property_id }});
 
-    const property = await Property.create({...req.body, user_id})
-
-    return res.status(201).json(property)
+    return res.json(property)
   }
-
-  async update(req, res) {}
-
-  async destroy(req, res) {}
 }
 
 export default new PropertyController();
